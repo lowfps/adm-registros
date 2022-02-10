@@ -1,0 +1,87 @@
+<!--breadcrumb-->
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+  <div class="breadcrumb-title pe-3">Programas</div>
+  <div class="ps-3">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0 p-0">
+        <li class="breadcrumb-item">
+          <a href="#" (click)="$event.preventDefault()"
+            ><i class="bx bx-home-alt"></i
+          ></a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Listado</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<!--end breadcrumb-->
+
+<div class="card">
+  <div class="card-body">
+    <div class="d-lg-flex align-items-center mb-4 gap-3">
+      <div class="ms-auto">
+        <a
+          [routerLink]="['/dashboard/crear-programa']"
+          class="btn radius-30 mt-2 mt-lg-0"
+          ><i class="bx bxs-plus-square"></i>Agregar nuevo programa</a
+        >
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table mb-0">
+        <thead class="table-light">
+          <tr>
+            <th># Código</th>
+            <th>Nombre Programa</th>
+            <!-- <th>Estado proceso</th> -->
+            <th>Fecha Creación</th>
+            <th>Información</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let objPrograma of programas">
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="ms-2">
+                  <h6 class="mb-0 font-14">{{ objPrograma.cod_programa }}</h6>
+                </div>
+              </div>
+            </td>
+            <td>{{ objPrograma.nombre_programa }}</td>
+            <!-- <td>
+              <div
+                class="
+                  badge
+                  rounded-pill
+                  text-success
+                  bg-light-success
+                  p-2
+                  text-uppercase
+                  px-3
+                "
+              >
+                <i class="bx bxs-circle me-1"></i>FulFilled
+              </div>
+            </td> -->
+            <td>{{ objPrograma.fechacreacion_programa }}</td>
+            <td>
+              <button type="button" class="btn btn-outline-warning btn-sm radius-30 px-4">
+                Ver detalle
+              </button>
+            </td>
+            <td style="align-items: center; vertical-align: middle">
+              <i class="bx bxs-edit bx-sm" style="color: rgb(34, 34, 201)"></i>
+              &nbsp;
+              <i
+                class="bx bxs-trash bx-sm"
+                style="color: rgb(207, 40, 40)"
+                (click)="deletePrograma(objPrograma)"
+              ></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

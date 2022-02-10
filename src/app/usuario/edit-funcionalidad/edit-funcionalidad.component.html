@@ -1,0 +1,48 @@
+<div>
+  <div class="container-fluid w-75  p-3">
+    <h6 class="mb-0 text-uppercase">
+      Código funcionalidad: {{ selectedFuncionalidad.cod_funcionalidad }}
+    </h6>
+    <hr />
+    <div class="card">
+      <div class="card-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Detalle nuevo:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="detalle_funcionalidad"
+              required
+              [(ngModel)]="selectedFuncionalidad.detalle_funcionalidad"
+              name="detalle_funcionalidad"
+            />
+          </div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <button
+                  (click)="updateFuncionalidad()"
+                  class="btn btn-outline-success px-5"
+                >
+                  Modificar
+                </button>
+                <p>{{ message }}</p>
+              </div>
+              <div class="col-sm">
+                <button
+                  [routerLink]="['/usuario/funcionalidad']"
+                  class="btn btn-outline-secondary px-5"
+                  (click)="refreshPage()"
+                >
+                  Cancelar
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
